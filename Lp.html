@@ -190,8 +190,7 @@
     }
     .review-track {
       display: flex;
-      overflow: hidden;
-      scroll-behavior: smooth;
+      transition: transform 0.5s ease-in-out;
       width: 100%;
     }
     .review-card {
@@ -199,7 +198,6 @@
       box-sizing: border-box;
       background: white;
       padding: 20px;
-      margin: 0 5px;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       text-align: center;
@@ -224,6 +222,21 @@
     }
     .review-carousel .prev { left: -15px; }
     .review-carousel .next { right: -15px; }
+
+    .review-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 18px;
+      background: #0066cc;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: background 0.3s ease;
+    }
+    .review-btn:hover {
+      background: #004999;
+    }
 
     @media (max-width: 600px) {
       .review-carousel button {
@@ -320,6 +333,10 @@
       <button class="next">▶</button>
     </div>
 
+    <a class="review-btn" href="https://g.page/r/CXaMACR3UQkMEBM/review" target="_blank">
+      ✍️ Write a Review on Google
+    </a>
+
     <div class="footer">
       © 2025 MK RIMBA CAMP PARK
     </div>
@@ -358,9 +375,8 @@
       activeVideo.classList.add("active");
       activeVideo.play();
 
-      // Center the active video
       const offset = (track.clientWidth / 2) - (activeVideo.offsetWidth / 2);
-      const translateX = -currentIndex * (170) + offset;
+      const translateX = -currentIndex * 170 + offset;
       track.style.transform = `translateX(${translateX}px)`;
     }
 
@@ -380,17 +396,32 @@
       updateCarousel();
     });
 
-    // Reviews carousel logic
+    // Reviews carousel auto-slide
     const reviewTrack = document.getElementById("review-track");
     const prevBtn = document.querySelector(".prev");
     const nextBtn = document.querySelector(".next");
+    let reviewIndex = 0;
+    const reviews = document.querySelectorAll(".review-card");
+
+    function updateReviewCarousel() {
+      reviewTrack.style.transform = `translateX(-${reviewIndex * 100}%)`;
+    }
 
     nextBtn.addEventListener("click", () => {
-      reviewTrack.scrollBy({ left: reviewTrack.offsetWidth, behavior: "smooth" });
+      reviewIndex = (reviewIndex + 1) % reviews.length;
+      updateReviewCarousel();
     });
+
     prevBtn.addEventListener("click", () => {
-      reviewTrack.scrollBy({ left: -reviewTrack.offsetWidth, behavior: "smooth" });
+      reviewIndex = (reviewIndex - 1 + reviews.length) % reviews.length;
+      updateReviewCarousel();
     });
+
+    // Auto-slide every 2s
+    setInterval(() => {
+      reviewIndex = (reviewIndex + 1) % reviews.length;
+      updateReviewCarousel();
+    }, 2000);
   </script>
 </body>
-</html>
+  </html>
