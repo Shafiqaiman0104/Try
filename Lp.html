@@ -235,6 +235,10 @@
       <span>Email Us</span>
     </a>
 
+    <!-- Reviews Section -->
+<h2 style="margin-top:30px; font-size:1.3rem; color:#2c3e50;">Customer Feedback</h2>
+<div id="reviews"></div>
+
     <div class="footer">
       © 2025 MK RIMBA CAMP PARK
     </div>
@@ -294,6 +298,29 @@
     window.addEventListener("load", () => {
       updateCarousel();
     });
+
+      const reviews = [
+    { author: "John D.", rating: 5, text: "Amazing place, so peaceful and natural!" },
+    { author: "Aina L.", rating: 4, text: "Great camping spot, kids loved it!" },
+    { author: "Mark S.", rating: 5, text: "Perfect for family outdoor activities." },
+    { author: "Nur Izzah", rating: 5, text: "Very friendly staff, highly recommend MK Rimba Camp Park." }
+  ];
+
+  const reviewsContainer = document.getElementById("reviews");
+
+  reviews.forEach(r => {
+    const stars = "⭐".repeat(r.rating);
+    const card = document.createElement("div");
+    card.className = "card";
+    card.style.flexDirection = "column";
+    card.style.alignItems = "flex-start";
+    card.innerHTML = `
+      <span style="font-size:1.1rem; color:#f39c12;">${stars}</span>
+      <p style="margin:8px 0; color:#333;">"${r.text}"</p>
+      <small style="color:#666;">– ${r.author}</small>
+    `;
+    reviewsContainer.appendChild(card);
+  });
   </script>
 </body>
 </html>
