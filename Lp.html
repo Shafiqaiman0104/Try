@@ -76,39 +76,41 @@
       font-weight: bold;
     }
 
-    /* TikTok carousel */
+    /* TikTok video carousel */
     .video-card {
       flex-direction: column;
       padding: 0;
+      overflow: hidden;
     }
     .carousel {
       position: relative;
       display: flex;
-      justify-content: center;
       align-items: center;
-      height: 260px;
+      justify-content: center;
       overflow: hidden;
+      width: 100%;
+      height: 270px;
     }
     .carousel-track {
       display: flex;
-      align-items: flex-end;
       transition: transform 0.5s ease-in-out;
+      align-items: flex-end;
     }
     .carousel video {
-      width: 120px;
-      height: 180px;
+      width: 150px;
+      height: 200px;
       margin: 0 10px;
       border-radius: 12px;
       object-fit: cover;
-      opacity: 0.5;
-      transform: scale(0.9) translateY(20px);
+      opacity: 0.6;
+      transform: scale(0.9);
       transition: all 0.4s ease;
     }
     .carousel video.active {
-      width: 200px;
+      width: 220px;
       height: 240px;
       opacity: 1;
-      transform: scale(1) translateY(-15px);
+      transform: scale(1) translateY(-20px);
       z-index: 2;
     }
     .carousel-button {
@@ -192,13 +194,13 @@
 
     <h1>MK RIMBA CAMP PARK</h1>
 
-    <!-- WhatsApp -->
-    <a class="card" href="https://wa.me/60197088144?text=Hello%20MK%20Rimba%20Camp%20Park%20👋" target="_blank">
-      <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp">
-      <span>WhatsApp MK Rimba Camp</span>
+    <!-- Chatbot -->
+    <a class="card" href="index.html" target="_blank">
+      <img src="https://img.icons8.com/?size=100&id=L3uh0mNuxBXw&format=png&color=000000" alt="Chatbot">
+      <span>MK Rimba Camp Chatbot</span>
     </a>
 
-    <!-- TikTok Carousel -->
+    <!-- TikTok Video Carousel -->
     <a class="card video-card" href="https://www.tiktok.com/@lynnarsat" target="_blank">
       <div class="carousel">
         <button class="carousel-button left">&#10094;</button>
@@ -215,16 +217,16 @@
       </div>
     </a>
 
+    <!-- WhatsApp -->
+    <a class="card" href="https://wa.me/60197088144?text=Hello%20MK%20Rimba%20Camp%20Park%20👋" target="_blank">
+      <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp">
+      <span>WhatsApp MK Rimba Camp</span>
+    </a>
+
     <!-- Facebook -->
     <a class="card" href="https://www.facebook.com/rimbacamppark" target="_blank">
       <img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook">
       <span>Follow us on Facebook</span>
-    </a>
-
-    <!-- Chatbot -->
-    <a class="card" href="index.html" target="_blank">
-      <img src="boticon.jpg" alt="Chatbot">
-      <span>MK Rimba Camp Chatbot</span>
     </a>
 
     <!-- Email -->
@@ -260,7 +262,7 @@
     const videos = Array.from(track.children);
     const leftBtn = document.querySelector(".carousel-button.left");
     const rightBtn = document.querySelector(".carousel-button.right");
-    let currentIndex = 1; // middle video first
+    let currentIndex = 1; // Start with middle video
 
     function updateCarousel() {
       videos.forEach((video, index) => {
@@ -271,8 +273,9 @@
       activeVideo.classList.add("active");
       activeVideo.play();
 
-      // move track
-      const translateX = -(currentIndex * 140) + 60; 
+      // Center the active video
+      const offset = (track.clientWidth / 2) - (activeVideo.offsetWidth / 2);
+      const translateX = -currentIndex * (170) + offset;
       track.style.transform = `translateX(${translateX}px)`;
     }
 
@@ -293,4 +296,4 @@
     });
   </script>
 </body>
-  </html>
+</html>
