@@ -55,6 +55,45 @@
       font-size: 0.8rem;
       color: #888;
     }
+
+    /* Chat bubble styles */
+    #chat-bubble {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #0066cc;
+      color: white;
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+    #chat-frame {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 350px;
+      height: 500px;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      display: none;
+      z-index: 1000;
+    }
+    @media (max-width: 600px) {
+      #chat-frame {
+        width: 90%;
+        height: 70%;
+        right: 5%;
+        bottom: 80px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -83,5 +122,25 @@
       © 2025 MK RIMBA CAMP PARK
     </div>
   </div>
+
+  <!-- Chat Bubble -->
+  <div id="chat-bubble">💬</div>
+  <iframe 
+    id="chat-frame" 
+    src="https://mkrimbacamp-vr.com/lite/mk-ai-chatbot/?m=channel-web&v=Fullscreen&options=%7B%22hideWidget%22%3Atrue%2C%22config%22%3A%7B%22enableReset%22%3Atrue%2C%22enableTranscriptDownload%22%3Atrue%7D%7D">
+  </iframe>
+
+  <script>
+    const chatBubble = document.getElementById("chat-bubble");
+    const chatFrame = document.getElementById("chat-frame");
+
+    chatBubble.addEventListener("click", () => {
+      if (chatFrame.style.display === "none" || chatFrame.style.display === "") {
+        chatFrame.style.display = "block";
+      } else {
+        chatFrame.style.display = "none";
+      }
+    });
+  </script>
 </body>
 </html>
