@@ -19,44 +19,72 @@
     .container {
       max-width: 500px;
       width: 90%;
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-      color: #2c3e50;
+    /* Logo */
+    .logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #ccc url('https://via.placeholder.com/120') no-repeat center/cover;
+      margin: 0 auto 15px;
     }
-    .info {
-      margin: 12px 0;
+    .bio {
       font-size: 1rem;
+      margin-bottom: 20px;
+      color: #555;
     }
-    .info a {
-      color: #0066cc;
-      text-decoration: none;
+    /* Social row */
+    .social-icons {
+      margin: 20px 0;
     }
-    .info a:hover {
-      text-decoration: underline;
-    }
-    .social {
-      margin-top: 20px;
-    }
-    .social a {
+    .social-icons a {
       display: inline-block;
       margin: 0 10px;
-      font-size: 1.2rem;
+      font-size: 1.8rem;
+      text-decoration: none;
       color: #333;
     }
+    /* Title */
+    h1 {
+      font-size: 1.6rem;
+      margin: 25px 0 15px;
+      color: #2c3e50;
+    }
+    /* Cards */
+    .card {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      margin: 12px 0;
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      color: #333;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+    .card img {
+      width: 40px;
+      height: 40px;
+      margin-right: 15px;
+    }
+    .card span {
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
     .footer {
-      margin-top: 25px;
+      margin-top: 30px;
       font-size: 0.8rem;
       color: #888;
     }
 
-    /* Chat bubble styles */
+    /* Chat bubble */
     #chat-bubble {
       position: fixed;
       bottom: 20px;
@@ -88,35 +116,48 @@
     }
     @media (max-width: 600px) {
       #chat-frame {
-        width: 90%;
-        height: 70%;
-        right: 5%;
-        bottom: 80px;
+        width: 100%;
+        height: 100%;
+        right: 0;
+        bottom: 0;
+        border-radius: 0;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>MK RIMBA CAMP PARK</h1>
-    
-    <div class="info">
-      📞 <a href="tel:+60197088144">+60197088144</a>
-    </div>
-    
-    <div class="info">
-      ✉️ <a href="mailto:mkrimbacamppark.vr@gmail.com">mkrimbacamppark.vr@gmail.com</a>
-    </div>
-    
-    <div class="info">
-      🎵 TikTok: <a href="https://www.tiktok.com/@lynarsat" target="_blank">@lynarsat</a>
+    <!-- Logo -->
+    <div class="logo"></div>
+
+    <!-- Bio -->
+    <div class="bio">Welcome to MK Rimba Camp Park 🌿 Adventure • Nature • Relax</div>
+
+    <!-- Social row -->
+    <div class="social-icons">
+      <a href="https://www.tiktok.com/@lynarsat" target="_blank">🎵</a>
+      <a href="https://wa.me/60197088144" target="_blank">📱</a>
+      <a href="mailto:mkrimbacamppark.vr@gmail.com">✉️</a>
     </div>
 
-    <div class="social">
-      <a href="tel:+60197088144">📞 Call</a>
-      <a href="mailto:mkrimbacamppark.vr@gmail.com">📧 Email</a>
-      <a href="https://www.tiktok.com/@lynarsat" target="_blank">🎵 TikTok</a>
-    </div>
+    <!-- Title -->
+    <h1>MK RIMBA CAMP PARK</h1>
+
+    <!-- Cards -->
+    <a class="card" href="https://wa.me/60197088144" target="_blank">
+      <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp">
+      <span>WhatsApp MK Rimba Camp</span>
+    </a>
+
+    <a class="card" href="https://www.tiktok.com/@lynarsat" target="_blank">
+      <img src="https://img.icons8.com/color/48/tiktok--v1.png" alt="TikTok">
+      <span>Follow us on TikTok</span>
+    </a>
+
+    <a class="card" href="mailto:mkrimbacamppark.vr@gmail.com">
+      <img src="https://img.icons8.com/color/48/gmail-new.png" alt="Email">
+      <span>Email Us</span>
+    </a>
 
     <div class="footer">
       © 2025 MK RIMBA CAMP PARK
