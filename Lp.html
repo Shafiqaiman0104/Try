@@ -84,34 +84,6 @@
       color: #888;
     }
 
-    /* TikTok Card */
-    .tiktok-card {
-      background: #fff;
-      padding: 12px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      margin: 15px 0;
-      text-align: center;
-    }
-    .tiktok-video {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 10px;
-    }
-    .tiktok-follow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      font-weight: bold;
-      color: #333;
-      text-decoration: none;
-    }
-    .tiktok-follow img {
-      width: 30px;
-      height: 30px;
-    }
-
     /* Chat bubble */
     #chat-bubble {
       position: fixed;
@@ -177,14 +149,16 @@
       <span>WhatsApp MK Rimba Camp</span>
     </a>
 
-    <!-- TikTok Card with video -->
-    <div class="tiktok-card">
-      <iframe class="tiktok-video" src="https://www.tiktok.com/embed/v2/7396041809016939818" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-      <a class="tiktok-follow" href="https://www.tiktok.com/@lynnarsat" target="_blank">
-        <img src="https://img.icons8.com/color/48/tiktok--v1.png" alt="TikTok">
-        <span>Follow us on TikTok</span>
-      </a>
-    </div>
+    <a class="card" href="https://www.tiktok.com/@lynnarsat" target="_blank">
+      <img src="https://img.icons8.com/color/48/tiktok--v1.png" alt="TikTok">
+      <span>Follow us on TikTok</span>
+    </a>
+
+    <!-- Facebook card -->
+    <a class="card" href="https://www.facebook.com/rimbacamppark" target="_blank">
+      <img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook">
+      <span>Follow us on Facebook</span>
+    </a>
 
     <a class="card" href="mailto:mkrimbacamppark.vr@gmail.com">
       <img src="https://img.icons8.com/color/48/gmail-new.png" alt="Email">
@@ -200,7 +174,7 @@
   <div id="chat-bubble">💬</div>
   <iframe 
     id="chat-frame" 
-    src="https://mkrimbacamp-vr.com/lite/mk-ai-chatbot/?m=channel-web&v=fullscreen&options=%7B%22hideWidget%22%3Atrue%2C%22config%22%3A%7B%22enableReset%22%3Atrue%2C%22enableTranscriptDownload%22%3Atrue%7D%7D">
+    src="https://mkrimbacamp-vr.com/lite/mk-ai-chatbot/?m=channel-web&v=Fullscreen&options=%7B%22hideWidget%22%3Atrue%2C%22config%22%3A%7B%22enableReset%22%3Atrue%2C%22enableTranscriptDownload%22%3Atrue%7D%7D">
   </iframe>
 
   <script>
@@ -216,4 +190,4 @@
     });
   </script>
 </body>
-  </html>
+</html>
