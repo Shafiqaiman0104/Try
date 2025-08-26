@@ -117,38 +117,6 @@
         border-radius: 15px;
       }
     }
-    /* TikTok modal */
-    #tiktok-modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7);
-      z-index: 2000;
-      justify-content: center;
-      align-items: center;
-    }
-    #tiktok-modal iframe {
-      width: 350px;
-      height: 600px;
-      border: none;
-      border-radius: 15px;
-      background: white;
-    }
-    #tiktok-modal .close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 28px;
-      color: white;
-      cursor: pointer;
-    }
-    @media (max-width: 600px) {
-      #tiktok-modal iframe {
-        width: 90%;
-        height: 70%;
-      }
-    }
   </style>
 </head>
 <body>
@@ -163,28 +131,31 @@
 
     <h1>MK RIMBA CAMP PARK</h1>
 
-    <!-- Cards -->
+    <!-- WhatsApp -->
     <a class="card" href="https://wa.me/60197088144?text=Hello%20MK%20Rimba%20Camp%20Park%20👋" target="_blank">
       <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp">
       <span>WhatsApp MK Rimba Camp</span>
     </a>
 
-    <!-- TikTok card opens modal -->
-    <div class="card" id="tiktok-card">
+    <!-- TikTok -->
+    <a class="card" href="https://www.tiktok.com/@lynnarsat" target="_blank">
       <img src="https://img.icons8.com/color/48/tiktok--v1.png" alt="TikTok">
-      <span>Watch our TikTok Video</span>
-    </div>
+      <span>Follow us on TikTok</span>
+    </a>
 
+    <!-- Facebook -->
     <a class="card" href="https://www.facebook.com/rimbacamppark" target="_blank">
       <img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook">
       <span>Follow us on Facebook</span>
     </a>
 
+    <!-- Chatbot -->
     <a class="card" href="index.html" target="_blank">
-      <img src="https://img.icons8.com/color/48/chatbot.png" alt="Chatbot">
+      <img src="https://img.icons8.com/external-flat-juicy-fish/60/external-bot-artificial-intelligence-flat-flat-juicy-fish.png" alt="Chatbot">
       <span>MK Rimba Camp Chatbot</span>
     </a>
 
+    <!-- Email -->
     <a class="card" href="mailto:mkrimbacamppark.vr@gmail.com">
       <img src="https://img.icons8.com/color/48/gmail-new.png" alt="Email">
       <span>Email Us</span>
@@ -202,12 +173,6 @@
     src="https://mkrimbacamp-vr.com/lite/mk-ai-chatbot/?m=channel-web&v=Fullscreen&options=%7B%22hideWidget%22%3Atrue%2C%22config%22%3A%7B%22enableReset%22%3Atrue%2C%22enableTranscriptDownload%22%3Atrue%7D%7D">
   </iframe>
 
-  <!-- TikTok modal -->
-  <div id="tiktok-modal">
-    <span class="close">&times;</span>
-    <iframe src="https://www.tiktok.com/embed/v2/7406511926828928261" allowfullscreen></iframe>
-  </div>
-
   <script>
     // Chat bubble toggle
     const chatBubble = document.getElementById("chat-bubble");
@@ -216,23 +181,6 @@
       chatFrame.style.display =
         (chatFrame.style.display === "none" || chatFrame.style.display === "") 
         ? "block" : "none";
-    });
-
-    // TikTok modal
-    const tiktokCard = document.getElementById("tiktok-card");
-    const tiktokModal = document.getElementById("tiktok-modal");
-    const closeBtn = document.querySelector("#tiktok-modal .close");
-
-    tiktokCard.addEventListener("click", () => {
-      tiktokModal.style.display = "flex";
-    });
-    closeBtn.addEventListener("click", () => {
-      tiktokModal.style.display = "none";
-    });
-    window.addEventListener("click", (e) => {
-      if (e.target === tiktokModal) {
-        tiktokModal.style.display = "none";
-      }
     });
   </script>
 </body>
