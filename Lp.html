@@ -51,8 +51,6 @@
     .card {
       display: flex;
       align-items: center;
-      justify-content: center;
-      flex-direction: column;
       padding: 15px;
       margin: 12px 0;
       border-radius: 12px;
@@ -70,12 +68,29 @@
     .card img {
       width: 40px;
       height: 40px;
-      margin-right: 10px;
+      margin-right: 15px;
       border-radius: 8px;
     }
     .card span {
       font-size: 1.1rem;
       font-weight: bold;
+    }
+    .video-card {
+      flex-direction: column;
+      padding: 0;
+      overflow: hidden;
+    }
+    .video-card video {
+      width: 100%;
+      max-height: 180px;
+      object-fit: cover;
+      border-radius: 12px 12px 0 0;
+      display: block;
+    }
+    .video-card .content {
+      display: flex;
+      align-items: center;
+      padding: 10px 15px;
     }
     .footer {
       margin-top: 30px;
@@ -137,34 +152,37 @@
     <h1>MK RIMBA CAMP PARK</h1>
 
     <!-- WhatsApp -->
-    <a class="card" href="https://wa.me/60197088144?text=Hello%20MK%20Rimba%20Camp%20Park%20👋" target="_blank" style="flex-direction:row;">
+    <a class="card" href="https://wa.me/60197088144?text=Hello%20MK%20Rimba%20Camp%20Park%20👋" target="_blank">
       <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp">
       <span>WhatsApp MK Rimba Camp</span>
     </a>
 
-    <!-- TikTok with video -->
-    <a class="card" href="https://www.tiktok.com/@lynnarsat" target="_blank">
-      <video src="mkvideo.mp4" autoplay muted loop playsinline style="width:100%; border-radius:10px; margin-bottom:10px;"></video>
-      <div style="display:flex; align-items:center; justify-content:center;">
+    <!-- TikTok Video -->
+    <a class="card video-card" href="https://www.tiktok.com/@lynnarsat" target="_blank">
+      <video autoplay muted loop playsinline>
+        <source src="mkvideo.mp4" type="video/mp4">
+        Your browser does not support video.
+      </video>
+      <div class="content">
         <img src="https://img.icons8.com/color/48/tiktok--v1.png" alt="TikTok">
-        <span style="margin-left:10px;">Follow us on TikTok</span>
+        <span>Follow us on TikTok</span>
       </div>
     </a>
 
     <!-- Facebook -->
-    <a class="card" href="https://www.facebook.com/rimbacamppark" target="_blank" style="flex-direction:row;">
+    <a class="card" href="https://www.facebook.com/rimbacamppark" target="_blank">
       <img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook">
       <span>Follow us on Facebook</span>
     </a>
 
     <!-- Chatbot -->
-    <a class="card" href="index.html" target="_blank" style="flex-direction:row;">
+    <a class="card" href="index.html" target="_blank">
       <img src="boticon.jpg" alt="Chatbot">
       <span>MK Rimba Camp Chatbot</span>
     </a>
 
     <!-- Email -->
-    <a class="card" href="mailto:mkrimbacamppark.vr@gmail.com" style="flex-direction:row;">
+    <a class="card" href="mailto:mkrimbacamppark.vr@gmail.com">
       <img src="https://img.icons8.com/color/48/gmail-new.png" alt="Email">
       <span>Email Us</span>
     </a>
