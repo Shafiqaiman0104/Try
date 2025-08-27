@@ -162,6 +162,34 @@
       color: #333;
     }
 
+    /* Rental Section (stacked cards) */
+    .rental-section {
+      margin: 30px 0;
+    }
+    .rental-section h2 {
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      color: #2c3e50;
+    }
+    .rental-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      margin: 12px 0;
+      text-align: center;
+    }
+    .rental-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .rental-card p {
+      padding: 10px;
+      font-weight: bold;
+      color: #333;
+    }
+
     /* Reviews Carousel */
     .review-container {
       margin: 30px 0;
@@ -329,6 +357,23 @@
       </div>
     </div>
 
+    <!-- Rental Items Section -->
+    <div class="rental-section">
+      <h2>Rental Items</h2>
+      <div class="rental-card">
+        <img src="rental.jpg" alt="ATV & Scooter">
+        <p>ATV & Scooter</p>
+      </div>
+      <div class="rental-card">
+        <img src="rental1.jpg" alt="Cooking Items">
+        <p>Cooking Items</p>
+      </div>
+      <div class="rental-card">
+        <img src="rental2.jpg" alt="Sleeping Gear">
+        <p>Sleeping Gear</p>
+      </div>
+    </div>
+
     <!-- Reviews Section -->
     <div class="review-container">
       <h2 style="margin-bottom:15px; font-size:1.3rem; color:#2c3e50;">Customer Feedback</h2>
@@ -440,4 +485,4 @@
     window.addEventListener("resize", updateReviewCarousel);
   </script>
 </body>
-  </html>
+        </html>
