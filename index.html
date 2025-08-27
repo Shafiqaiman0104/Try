@@ -196,58 +196,6 @@
       font-size: 1rem;
       margin: 0;
     }
-
-    /* Reviews Carousel */
-    .review-container {
-      margin: 30px 0;
-    }
-    .review-carousel {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
-      border-radius: 12px;
-      background: white;
-      padding: 20px 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    .review-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-    .review-card {
-      flex: 0 0 calc(100% / 3 - 10px);
-      background: #fdfdfd;
-      margin: 0 5px;
-      padding: 12px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      font-size: 0.9rem;
-    }
-    .review-card .stars {
-      font-size: 1rem;
-      color: #f39c12;
-      display: block;
-      margin-bottom: 8px;
-    }
-    .review-carousel button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: #0066cc;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 35px;
-      height: 35px;
-      cursor: pointer;
-      font-size: 1rem;
-      z-index: 2;
-    }
-    .review-carousel .prev { left: -15px; }
-    .review-carousel .next { right: -15px; }
-
     .footer {
       margin-top: 30px;
       font-size: 0.8rem;
@@ -285,7 +233,6 @@
 
     /* Responsive */
     @media (max-width: 600px) {
-      .review-card { flex: 0 0 100%; }
       #chat-frame {
         width: 90%;
         height: 70%;
@@ -384,27 +331,7 @@
       </div>
     </div>
 
-    <!-- Reviews Section -->
-    <div class="review-container">
-      <h2 style="margin-bottom:15px; font-size:1.3rem; color:#2c3e50;">Customer Feedback</h2>
-      <div class="review-carousel">
-        <button class="prev">◀</button>
-        <div class="review-track" id="review-track">
-          <div class="review-card"><span class="stars">⭐⭐⭐⭐⭐</span><p>"Amazing place, so peaceful and natural!"</p><small>– John D.</small></div>
-          <div class="review-card"><span class="stars">⭐⭐⭐⭐</span><p>"Great camping spot, kids loved it!"</p><small>– Aina L.</small></div>
-          <div class="review-card"><span class="stars">⭐⭐⭐⭐⭐</span><p>"Perfect for family outdoor activities."</p><small>– Mark S.</small></div>
-          <div class="review-card"><span class="stars">⭐⭐⭐⭐⭐</span><p>"Very friendly staff, highly recommend MK Rimba Camp Park."</p><small>– Nur Izzah</small></div>
-          <div class="review-card"><span class="stars">⭐⭐⭐⭐</span><p>"Affordable and fun, will come again."</p><small>– Adam R.</small></div>
-        </div>
-        <button class="next">▶</button>
-      </div>
-    </div>
-
-    <!-- Write Review Card -->
-    <a class="card" href="https://g.page/r/CXaMACR3UQkMEBM/review" target="_blank">
-      <img src="https://img.icons8.com/color/48/feedback.png" alt="Review">
-      <span>✍️ Write a Review on Google</span>
-    </a>
+<script defer async src='https://cdn.trustindex.io/loader.js?2654ca8528738985a7864f886ac'></script>
 
     <div class="footer">
       © 2025 MK RIMBA CAMP PARK
@@ -464,35 +391,6 @@
     window.addEventListener("load", () => {
       updateCarousel();
     });
-
-    // Reviews carousel logic
-    const reviewTrack = document.getElementById("review-track");
-    const prevBtn = document.querySelector(".prev");
-    const nextBtn = document.querySelector(".next");
-    const reviews = document.querySelectorAll(".review-card");
-    let reviewIndex = 0;
-    const visible = 3; // show 3 at a time
-
-    function updateReviewCarousel() {
-      const cardWidth = reviews[0].offsetWidth + 10; // card + margin
-      reviewTrack.style.transform = `translateX(-${reviewIndex * cardWidth}px)`;
-    }
-
-    nextBtn.addEventListener("click", () => {
-      if (reviewIndex < reviews.length - visible) {
-        reviewIndex++;
-        updateReviewCarousel();
-      }
-    });
-
-    prevBtn.addEventListener("click", () => {
-      if (reviewIndex > 0) {
-        reviewIndex--;
-        updateReviewCarousel();
-      }
-    });
-
-    window.addEventListener("resize", updateReviewCarousel);
   </script>
 </body>
         </html>
