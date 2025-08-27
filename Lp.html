@@ -196,6 +196,19 @@
       margin: 0;
     }
 
+    /* Keep image + text side by side even on mobile */
+.rental-card {
+  display: flex;
+  align-items: center;
+  flex-direction: row !important; /* Force horizontal */
+}
+
+.rental-card img {
+  width: 100px;   /* smaller size for mobile */
+  height: auto;
+  margin-right: 10px;
+}
+
     /* Reviews Carousel */
     .review-container {
       margin: 30px 0;
