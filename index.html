@@ -13,13 +13,13 @@
       color: #333;
       display: flex;
       justify-content: center;
-      align-items: center;
       min-height: 100vh;
     }
     .container {
       max-width: 500px;
       width: 90%;
       text-align: center;
+      padding-top: 40px; /* ✅ Added space from top */
     }
     .logo {
       width: 120px;
@@ -162,7 +162,7 @@
       color: #333;
     }
 
-    /* Rental Section (always horizontal) */
+    /* Rental Section */
     .rental-section {
       margin: 30px 0;
     }
@@ -196,6 +196,53 @@
       font-size: 1rem;
       margin: 0;
     }
+
+    /* ✅ Vlog Section with Cards */
+    .vlog-section {
+      margin: 30px 0;
+    }
+    .vlog-section h2 {
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+      color: #2c3e50;
+    }
+    .vlog-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .vlog-card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 15px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .vlog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+    .vlog-video {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+    .vlog-video iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    @media (min-width: 768px) {
+      .vlog-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
     .footer {
       margin-top: 30px;
       font-size: 0.8rem;
@@ -331,27 +378,39 @@
       </div>
     </div>
 
-        <!-- Facilitis Section -->
+    <!-- Facilities Section -->
     <div class="units-section">
       <h2>Facilities</h2>
       <div class="unit-cards">
         <div class="unit-card">
-          <img src="https://i.imgur.com/FyiWCPs.jpeg" alt="Pondok A-Tent">
+          <img src="https://i.imgur.com/FyiWCPs.jpeg" alt="Swimming Pool">
           <p>Swimming Pool</p>
         </div>
         <div class="unit-card">
-          <img src="https://i.imgur.com/mxakCwZ.jpeg" alt="Camping Lot">
+          <img src="https://i.imgur.com/mxakCwZ.jpeg" alt="Mosque">
           <p>MOSQUE</p>
         </div>
         <div class="unit-card">
-          <img src="https://i.imgur.com/O6NCdec.jpeg" alt="Gazebo/Event Space">
+          <img src="https://i.imgur.com/O6NCdec.jpeg" alt="Toilet">
           <p>CLEAN & COMFORTABLE TOILET</p>
         </div>
       </div>
     </div>
+
+    <!-- ✅ Vlog Section -->
+    <div class="vlog-section">
+      <h2>Customer Vlogs 🎥</h2>
+      <div class="vlog-grid">
+        <div class="vlog-card"><div class="vlog-video"><iframe src="https://www.youtube.com/embed/S21N2gBk73U" allowfullscreen></iframe></div></div>
+        <div class="vlog-card"><div class="vlog-video"><iframe src="https://www.youtube.com/embed/ImNLFlLXvsE" allowfullscreen></iframe></div></div>
+        <div class="vlog-card"><div class="vlog-video"><iframe src="https://www.youtube.com/embed/QPmIEKzP8lM" allowfullscreen></iframe></div></div>
+        <div class="vlog-card"><div class="vlog-video"><iframe src="https://www.youtube.com/embed/j5b0NBZdWZA" allowfullscreen></iframe></div></div>
+        <div class="vlog-card"><div class="vlog-video"><iframe src="https://www.youtube.com/embed/tWkMxxy8OOQ" allowfullscreen></iframe></div></div>
+      </div>
+    </div>
     
-<h2>What Our Customers Say ⭐</h2>
-<script defer async src='https://cdn.trustindex.io/loader.js?2654ca8528738985a7864f886ac'></script>
+    <h2>What Our Customers Say ⭐</h2>
+    <script defer async src='https://cdn.trustindex.io/loader.js?2654ca8528738985a7864f886ac'></script>
 
     <div class="footer">
       © 2025 MK RIMBA CAMP PARK
@@ -413,4 +472,4 @@
     });
   </script>
 </body>
-        </html>
+  </html>
