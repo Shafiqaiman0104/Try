@@ -208,7 +208,7 @@
     }
     .vlog-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 20px;
     }
     .vlog-card {
@@ -237,9 +237,9 @@
       height: 100%;
       border: none;
     }
-    @media (max-width: 480px) {
+    @media (min-width: 768px) {
       .vlog-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
       }
     }
 
@@ -472,4 +472,4 @@
     });
   </script>
 </body>
-      </html>
+  </html>
