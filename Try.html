@@ -200,7 +200,6 @@
     const API_KEY = "AIzaSyBQZe9U42w2EP8zUKD58Vibnha_W-pQ_Pk";
     const videoIds = ["S21N2gBk73U","ImNLFlLXvsE","QPmIEKzP8lM","j5b0NBZdWZA","tWkMxxy8OOQ"];
 
-    // ✅ Format numbers (e.g. 20657 -> 20.6K, 2500000 -> 2.5M)
     function formatNumber(num) {
       if (!num) return "0";
       num = parseInt(num, 10);
@@ -231,20 +230,24 @@
         if (data.items && data.items.length > 0) {
           const snippet = data.items[0].snippet;
           const stats = data.items[0].statistics;
+          const channelId = snippet.channelId;
 
-          // Title
           document.getElementById(`title-${videoId}`).textContent = snippet.title;
 
-          // Channel info
           const channelDiv = document.getElementById(`channel-${videoId}`);
           channelDiv.querySelector(".channel-name").textContent = snippet.channelTitle;
 
           const logoImg = document.getElementById(`logo-${videoId}`);
-          fetchChannelLogo(snippet.channelId).then(logoUrl => {
+          fetchChannelLogo(channelId).then(logoUrl => {
             logoImg.src = logoUrl;
           });
 
-          // Stats
+          // ✅ Make Subscribe button go to channel page
+          const subBtn = channelDiv.querySelector(".subscribe-btn");
+          subBtn.onclick = () => {
+            window.open(`https://www.youtube.com/channel/${channelId}`, "_blank");
+          };
+
           const likes = formatNumber(stats.likeCount || 0);
           const views = formatNumber(stats.viewCount || 0);
           document.getElementById(`stats-${videoId}`).innerHTML =
@@ -260,4 +263,4 @@
     videoIds.forEach(id => fetchStats(id));
   </script>
 </body>
-  </html>
+</html>
