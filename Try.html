@@ -165,14 +165,28 @@
     const API_KEY = "AIzaSyBQZe9U42w2EP8zUKD58Vibnha_W-pQ_Pk";
     const videoIds = ["S21N2gBk73U","ImNLFlLXvsE","QPmIEKzP8lM","j5b0NBZdWZA","tWkMxxy8OOQ"];
 
+// ✅ Format numbers (e.g. 20657 -> 20.6K, 2500000 -> 2.5M)
+    function formatNumber(num) {
+      if (!num) return "0";
+      num = parseInt(num, 10);
+      if (num >= 1000000) {
+        return (num / 1000000).toFixed(1).replace(/\.0$/, "") + "M";
+      } else if (num >= 1000) {
+        return (num / 1000).toFixed(1).replace(/\.0$/, "") + "K";
+      }
+      return num.toLocaleString(); // adds commas for smaller numbers
+    }
+    
     async function fetchStats(videoId) {
       try {
         const res = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoId}&key=${API_KEY}`);
         const data = await res.json();
         if (data.items && data.items.length > 0) {
           const stats = data.items[0].statistics;
+          const likes = formatNumber(stats.likeCount || 0);
+          const views = formatNumber(stats.viewCount || 0);
           document.getElementById(`stats-${videoId}`).innerHTML =
-            `👍 ${stats.likeCount || 0} &nbsp;&nbsp; 👁️ ${stats.viewCount || 0}`;
+            `👍 ${likes} &nbsp;&nbsp; 👁️ ${views}`;
         } else {
           document.getElementById(`stats-${videoId}`).innerHTML = "No stats available";
         }
@@ -180,7 +194,7 @@
         document.getElementById(`stats-${videoId}`).innerHTML = "Error loading stats";
       }
     }
-
+    
     videoIds.forEach(id => fetchStats(id));
   </script>
 </body>
