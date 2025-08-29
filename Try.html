@@ -96,7 +96,14 @@
     .vlog-card:hover { transform: translateY(-5px); box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
     .vlog-video { position: relative; width: 100%; padding-bottom: 56.25%; overflow: hidden; border-radius: 12px; }
     .vlog-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+    .video-title { font-weight: bold; margin: 10px 0 5px; font-size: 15px; text-align: left; color: #222; }
+    .video-channel { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .channel-logo { width: 28px; height: 28px; border-radius: 50%; }
+    .channel-name { font-size: 14px; font-weight: 500; }
+    .subscribe-btn { margin-left: auto; background: red; color: white; border: none; border-radius: 16px; padding: 5px 12px; font-size: 13px; cursor: pointer; }
+    .subscribe-btn:hover { background: #cc0000; }
     .video-stats { margin-top: 10px; font-size: 14px; color: #555; display: flex; justify-content: space-between; }
+
     @media (min-width: 768px) { .vlog-grid { grid-template-columns: 1fr 1fr; } }
 
     .footer { margin-top: 30px; font-size: 0.8rem; color: #888; }
@@ -116,30 +123,58 @@
     <div class="bio">Welcome to MK Rimba Camp Park 🌿<br> Adventure • Nature • Relax</div>
     <h1>MK RIMBA CAMP PARK</h1>
 
-    <!-- Cards (chatbot, tiktok, etc.)... -->
-
     <!-- ✅ Vlog Section -->
     <div class="vlog-section">
       <h2>Customer Vlogs 🎥</h2>
       <div class="vlog-grid">
         <div class="vlog-card">
           <div class="vlog-video"><iframe src="https://www.youtube.com/embed/S21N2gBk73U" allowfullscreen></iframe></div>
+          <div class="video-title" id="title-S21N2gBk73U">Loading title...</div>
+          <div class="video-channel" id="channel-S21N2gBk73U">
+            <img src="" alt="Channel Logo" class="channel-logo" id="logo-S21N2gBk73U">
+            <span class="channel-name"></span>
+            <button class="subscribe-btn">Subscribe</button>
+          </div>
           <div class="video-stats" id="stats-S21N2gBk73U">Loading...</div>
         </div>
         <div class="vlog-card">
           <div class="vlog-video"><iframe src="https://www.youtube.com/embed/ImNLFlLXvsE" allowfullscreen></iframe></div>
+          <div class="video-title" id="title-ImNLFlLXvsE">Loading title...</div>
+          <div class="video-channel" id="channel-ImNLFlLXvsE">
+            <img src="" alt="Channel Logo" class="channel-logo" id="logo-ImNLFlLXvsE">
+            <span class="channel-name"></span>
+            <button class="subscribe-btn">Subscribe</button>
+          </div>
           <div class="video-stats" id="stats-ImNLFlLXvsE">Loading...</div>
         </div>
         <div class="vlog-card">
           <div class="vlog-video"><iframe src="https://www.youtube.com/embed/QPmIEKzP8lM" allowfullscreen></iframe></div>
+          <div class="video-title" id="title-QPmIEKzP8lM">Loading title...</div>
+          <div class="video-channel" id="channel-QPmIEKzP8lM">
+            <img src="" alt="Channel Logo" class="channel-logo" id="logo-QPmIEKzP8lM">
+            <span class="channel-name"></span>
+            <button class="subscribe-btn">Subscribe</button>
+          </div>
           <div class="video-stats" id="stats-QPmIEKzP8lM">Loading...</div>
         </div>
         <div class="vlog-card">
           <div class="vlog-video"><iframe src="https://www.youtube.com/embed/j5b0NBZdWZA" allowfullscreen></iframe></div>
+          <div class="video-title" id="title-j5b0NBZdWZA">Loading title...</div>
+          <div class="video-channel" id="channel-j5b0NBZdWZA">
+            <img src="" alt="Channel Logo" class="channel-logo" id="logo-j5b0NBZdWZA">
+            <span class="channel-name"></span>
+            <button class="subscribe-btn">Subscribe</button>
+          </div>
           <div class="video-stats" id="stats-j5b0NBZdWZA">Loading...</div>
         </div>
         <div class="vlog-card">
           <div class="vlog-video"><iframe src="https://www.youtube.com/embed/tWkMxxy8OOQ" allowfullscreen></iframe></div>
+          <div class="video-title" id="title-tWkMxxy8OOQ">Loading title...</div>
+          <div class="video-channel" id="channel-tWkMxxy8OOQ">
+            <img src="" alt="Channel Logo" class="channel-logo" id="logo-tWkMxxy8OOQ">
+            <span class="channel-name"></span>
+            <button class="subscribe-btn">Subscribe</button>
+          </div>
           <div class="video-stats" id="stats-tWkMxxy8OOQ">Loading...</div>
         </div>
       </div>
@@ -165,7 +200,7 @@
     const API_KEY = "AIzaSyBQZe9U42w2EP8zUKD58Vibnha_W-pQ_Pk";
     const videoIds = ["S21N2gBk73U","ImNLFlLXvsE","QPmIEKzP8lM","j5b0NBZdWZA","tWkMxxy8OOQ"];
 
-// ✅ Format numbers (e.g. 20657 -> 20.6K, 2500000 -> 2.5M)
+    // ✅ Format numbers (e.g. 20657 -> 20.6K, 2500000 -> 2.5M)
     function formatNumber(num) {
       if (!num) return "0";
       num = parseInt(num, 10);
@@ -174,15 +209,42 @@
       } else if (num >= 1000) {
         return (num / 1000).toFixed(1).replace(/\.0$/, "") + "K";
       }
-      return num.toLocaleString(); // adds commas for smaller numbers
+      return num.toLocaleString();
     }
-    
+
+    async function fetchChannelLogo(channelId) {
+      const res = await fetch(
+        `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${API_KEY}`
+      );
+      const data = await res.json();
+      if (data.items && data.items.length > 0) {
+        return data.items[0].snippet.thumbnails.default.url;
+      }
+      return "https://www.gstatic.com/youtube/img/branding/favicon/favicon_144.png";
+    }
+
     async function fetchStats(videoId) {
       try {
-        const res = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoId}&key=${API_KEY}`);
+        const res = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${API_KEY}`);
         const data = await res.json();
+
         if (data.items && data.items.length > 0) {
+          const snippet = data.items[0].snippet;
           const stats = data.items[0].statistics;
+
+          // Title
+          document.getElementById(`title-${videoId}`).textContent = snippet.title;
+
+          // Channel info
+          const channelDiv = document.getElementById(`channel-${videoId}`);
+          channelDiv.querySelector(".channel-name").textContent = snippet.channelTitle;
+
+          const logoImg = document.getElementById(`logo-${videoId}`);
+          fetchChannelLogo(snippet.channelId).then(logoUrl => {
+            logoImg.src = logoUrl;
+          });
+
+          // Stats
           const likes = formatNumber(stats.likeCount || 0);
           const views = formatNumber(stats.viewCount || 0);
           document.getElementById(`stats-${videoId}`).innerHTML =
@@ -194,8 +256,8 @@
         document.getElementById(`stats-${videoId}`).innerHTML = "Error loading stats";
       }
     }
-    
+
     videoIds.forEach(id => fetchStats(id));
   </script>
 </body>
-</html>
+  </html>
