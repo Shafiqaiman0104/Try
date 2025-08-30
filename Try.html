@@ -19,7 +19,7 @@
       max-width: 500px;
       width: 90%;
       text-align: center;
-      padding-top: 40px;
+      padding-top: 40px; /* ✅ Added space from top */
     }
     .logo {
       width: 120px;
@@ -66,52 +66,270 @@
       font-weight: bold;
     }
 
-    .video-card { flex-direction: column; padding: 0; overflow: hidden; }
-    .carousel { position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; width: 100%; height: 270px; }
-    .carousel-track { display: flex; transition: transform 0.5s ease-in-out; align-items: flex-end; }
-    .carousel video { width: 150px; height: 200px; margin: 0 10px; border-radius: 12px; object-fit: cover; opacity: 0.6; transform: scale(0.9); transition: all 0.4s ease; }
-    .carousel video.active { width: 220px; height: 240px; opacity: 1; transform: scale(1) translateY(-20px); z-index: 2; }
-    .carousel-button { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; border-radius: 50%; width: 35px; height: 35px; cursor: pointer; font-size: 18px; z-index: 5; }
+    /* TikTok video carousel */
+    .video-card {
+      flex-direction: column;
+      padding: 0;
+      overflow: hidden;
+    }
+    .carousel {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      width: 100%;
+      height: 270px;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      align-items: flex-end;
+    }
+    .carousel video {
+      width: 150px;
+      height: 200px;
+      margin: 0 10px;
+      border-radius: 12px;
+      object-fit: cover;
+      opacity: 0.6;
+      transform: scale(0.9);
+      transition: all 0.4s ease;
+    }
+    .carousel video.active {
+      width: 220px;
+      height: 240px;
+      opacity: 1;
+      transform: scale(1) translateY(-20px);
+      z-index: 2;
+    }
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+      font-size: 18px;
+      z-index: 5;
+    }
     .carousel-button.left { left: 10px; }
     .carousel-button.right { right: 10px; }
-    .video-card .content { display: flex; align-items: center; justify-content: center; padding: 10px 15px; }
+    .video-card .content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 15px;
+    }
 
-    .units-section { margin: 30px 0; }
-    .units-section h2 { margin-bottom: 15px; font-size: 1.3rem; color: #2c3e50; }
-    .unit-cards { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; scroll-snap-type: x mandatory; }
-    .unit-card { flex: 0 0 70%; background: white; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow: hidden; text-align: center; scroll-snap-align: center; }
-    .unit-card img { width: 100%; height: 150px; object-fit: cover; }
-    .unit-card p { padding: 10px; font-weight: bold; color: #333; }
+    /* Units Section */
+    .units-section {
+      margin: 30px 0;
+    }
+    .units-section h2 {
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      color: #2c3e50;
+    }
+    .unit-cards {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      scroll-snap-type: x mandatory;
+    }
+    .unit-card {
+      flex: 0 0 70%;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+      scroll-snap-align: center;
+    }
+    .unit-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .unit-card p {
+      padding: 10px;
+      font-weight: bold;
+      color: #333;
+    }
 
-    .rental-section { margin: 30px 0; }
-    .rental-section h2 { margin-bottom: 15px; font-size: 1.3rem; color: #2c3e50; }
-    .rental-card { display: flex; align-items: center; flex-direction: row; background: white; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow: hidden; margin: 12px 0; text-align: left; padding: 10px; }
-    .rental-card img { width: 120px; height: 90px; object-fit: cover; border-radius: 10px; margin-right: 15px; }
-    .rental-card p { font-weight: bold; color: #333; font-size: 1rem; margin: 0; }
+    /* Rental Section */
+    .rental-section {
+      margin: 30px 0;
+    }
+    .rental-section h2 {
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      color: #2c3e50;
+    }
+    .rental-card {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      margin: 12px 0;
+      text-align: left;
+      padding: 10px;
+    }
+    .rental-card img {
+      width: 120px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-right: 15px;
+    }
+    .rental-card p {
+      font-weight: bold;
+      color: #333;
+      font-size: 1rem;
+      margin: 0;
+    }
 
-    .vlog-section { margin: 30px 0; }
-    .vlog-section h2 { margin-bottom: 20px; font-size: 1.3rem; color: #2c3e50; }
-    .vlog-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-    .vlog-card { background: #fff; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 15px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-    .vlog-card:hover { transform: translateY(-5px); box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
-    .vlog-video { position: relative; width: 100%; padding-bottom: 56.25%; overflow: hidden; border-radius: 12px; }
-    .vlog-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-    .video-title { font-weight: bold; margin: 10px 0 5px; font-size: 15px; text-align: left; color: #222; }
-    .video-channel { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-    .channel-logo { width: 28px; height: 28px; border-radius: 50%; }
-    .channel-name { font-size: 14px; font-weight: 500; }
-    .subscribe-btn { margin-left: auto; background: red; color: white; border: none; border-radius: 16px; padding: 5px 12px; font-size: 13px; cursor: pointer; }
-    .subscribe-btn:hover { background: #cc0000; }
-    .video-stats { margin-top: 10px; font-size: 14px; color: #555; display: flex; justify-content: space-between; }
+    /* ✅ Updated Vlog Section with Cards */
+    .vlog-section {
+      margin: 30px 0;
+    }
+    .vlog-section h2 {
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+      color: #2c3e50;
+    }
+    .vlog-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .vlog-card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 15px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .vlog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+    .vlog-video {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+    .vlog-video iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .video-title {
+      font-weight: bold;
+      margin: 10px 0 5px;
+      font-size: 15px;
+      text-align: left;
+      color: #222;
+    }
+    .video-channel {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .channel-logo {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+    }
+    .channel-name {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .subscribe-btn {
+      margin-left: auto;
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 16px;
+      padding: 5px 12px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .subscribe-btn:hover {
+      background: #cc0000;
+    }
+    .video-stats {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #555;
+      display: flex;
+      justify-content: space-between;
+    }
 
-    @media (min-width: 768px) { .vlog-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 768px) {
+      .vlog-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
 
-    .footer { margin-top: 30px; font-size: 0.8rem; color: #888; }
-    #chat-bubble { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background-color: #0066cc; color: white; font-size: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 1000; }
-    #chat-frame { position: fixed; bottom: 90px; right: 20px; width: 350px; height: 500px; border: none; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); display: none; z-index: 1000; }
+    .footer {
+      margin-top: 30px;
+      font-size: 0.8rem;
+      color: #888;
+    }
+    #chat-bubble {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #0066cc;
+      color: white;
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+    #chat-frame {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 350px;
+      height: 500px;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      display: none;
+      z-index: 1000;
+    }
 
+    /* Responsive */
     @media (max-width: 600px) {
-      #chat-frame { width: 90%; height: 70%; right: 5%; bottom: 80px; border-radius: 15px; }
+      #chat-frame {
+        width: 90%;
+        height: 70%;
+        right: 5%;
+        bottom: 80px;
+        border-radius: 15px;
+      }
       .unit-card { flex: 0 0 85%; }
       .rental-card img { width: 100px; height: auto; }
     }
@@ -119,11 +337,110 @@
 </head>
 <body>
   <div class="container">
+    <!-- Logo -->
     <div class="logo"></div>
+        
     <div class="bio">Welcome to MK Rimba Camp Park 🌿<br> Adventure • Nature • Relax</div>
+
     <h1>MK RIMBA CAMP PARK</h1>
 
-    <!-- ✅ Vlog Section -->
+    <!-- Chatbot -->
+    <a class="card" href="webChat.html" target="_blank">
+      <img src="https://img.icons8.com/?size=100&id=L3uh0mNuxBXw&format=png&color=000000" alt="Chatbot">
+      <span>MK Rimba Camp Chatbot</span>
+    </a>
+
+    <!-- TikTok Video Carousel -->
+    <a class="card video-card" href="https://www.tiktok.com/@lynnarsat" target="_blank">
+      <div class="carousel">
+        <button class="carousel-button left">&#10094;</button>
+        <div class="carousel-track">
+          <video muted loop playsinline><source src="mkvideo.mp4" type="video/mp4"></video>
+          <video muted loop playsinline class="active"><source src="mkvideo1.mp4" type="video/mp4"></video>
+          <video muted loop playsinline><source src="mkvideo2.mp4" type="video/mp4"></video>
+        </div>
+        <button class="carousel-button right">&#10095;</button>
+      </div>
+      <div class="content">
+        <img src="https://img.icons8.com/color/48/tiktok--v1.png" alt="TikTok">
+        <span>Follow us on TikTok</span>
+      </div>
+    </a>
+
+    <!-- WhatsApp -->
+    <a class="card" href="https://wa.me/60197088144?text=Hello%20MK%20Rimba%20Camp%20Park%20👋" target="_blank">
+      <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp">
+      <span>WhatsApp MK Rimba Camp</span>
+    </a>
+
+    <!-- Facebook -->
+    <a class="card" href="https://www.facebook.com/rimbacamppark" target="_blank">
+      <img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook">
+      <span>Follow us on Facebook</span>
+    </a>
+
+    <!-- Email -->
+    <a class="card" href="mailto:mkrimbacamppark.vr@gmail.com">
+      <img src="https://img.icons8.com/color/48/gmail-new.png" alt="Email">
+      <span>Email Us</span>
+    </a>
+
+    <!-- Units Section -->
+    <div class="units-section">
+      <h2>Our Units</h2>
+      <div class="unit-cards">
+        <div class="unit-card">
+          <img src="https://i.imgur.com/bym4rI8.jpeg" alt="Pondok A-Tent">
+          <p>Pondok A-Tent</p>
+        </div>
+        <div class="unit-card">
+          <img src="https://i.imgur.com/DxD3ZrX.jpeg" alt="Camping Lot">
+          <p>Camping Lot</p>
+        </div>
+        <div class="unit-card">
+          <img src="https://i.imgur.com/dxaiTqH.jpeg" alt="Gazebo/Event Space">
+          <p>Gazebo / Event Space</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rental Items Section -->
+    <div class="rental-section">
+      <h2>Rental Items</h2>
+      <div class="rental-card">
+        <img src="rental.jpg" alt="ATV & Scooter">
+        <p>ATV & Scooter</p>
+      </div>
+      <div class="rental-card">
+        <img src="rental1.jpg" alt="Cooking Items">
+        <p>Cooking Items</p>
+      </div>
+      <div class="rental-card">
+        <img src="rental2.jpg" alt="Sleeping Gear">
+        <p>Sleeping Gear</p>
+      </div>
+    </div>
+
+    <!-- Facilities Section -->
+    <div class="units-section">
+      <h2>Facilities</h2>
+      <div class="unit-cards">
+        <div class="unit-card">
+          <img src="https://i.imgur.com/FyiWCPs.jpeg" alt="Swimming Pool">
+          <p>Swimming Pool</p>
+        </div>
+        <div class="unit-card">
+          <img src="https://i.imgur.com/mxakCwZ.jpeg" alt="Mosque">
+          <p>MOSQUE</p>
+        </div>
+        <div class="unit-card">
+          <img src="https://i.imgur.com/O6NCdec.jpeg" alt="Toilet">
+          <p>CLEAN & COMFORTABLE TOILET</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ Updated Vlog Section -->
     <div class="vlog-section">
       <h2>Customer Vlogs 🎥</h2>
       <div class="vlog-grid">
@@ -179,16 +496,24 @@
         </div>
       </div>
     </div>
-
+    
     <h2>What Our Customers Say ⭐</h2>
     <script defer async src='https://cdn.trustindex.io/loader.js?2654ca8528738985a7864f886ac'></script>
-    <div class="footer">© 2025 MK RIMBA CAMP PARK</div>
+
+    <div class="footer">
+      © 2025 MK RIMBA CAMP PARK
+    </div>
   </div>
 
+  <!-- Floating Chat Bubble -->
   <div id="chat-bubble">💬</div>
-  <iframe id="chat-frame" src="https://botpress.mkrimbacamp-vr.com/lite/mk-ai-chatbot/?m=channel-web&v=Fullscreen&options=%7B%22hideWidget%22%3Atrue%2C%22config%22%3A%7B%22enableReset%22%3Atrue%2C%22enableTranscriptDownload%22%3Atrue%7D%7D"></iframe>
+  <iframe 
+    id="chat-frame" 
+    src="https://botpress.mkrimbacamp-vr.com/lite/mk-ai-chatbot/?m=channel-web&v=Fullscreen&options=%7B%22hideWidget%22%3Atrue%2C%22config%22%3A%7B%22enableReset%22%3Atrue%2C%22enableTranscriptDownload%22%3Atrue%7D%7D">
+  </iframe>
 
   <script>
+    // Chat bubble toggle
     const chatBubble = document.getElementById("chat-bubble");
     const chatFrame = document.getElementById("chat-frame");
     chatBubble.addEventListener("click", () => {
@@ -197,6 +522,44 @@
         ? "block" : "none";
     });
 
+    // TikTok carousel logic
+    const track = document.querySelector(".carousel-track");
+    const videos = Array.from(track.children);
+    const leftBtn = document.querySelector(".carousel-button.left");
+    const rightBtn = document.querySelector(".carousel-button.right");
+    let currentIndex = 1; // Start with middle video
+
+    function updateCarousel() {
+      videos.forEach((video, index) => {
+        video.classList.remove("active");
+        video.pause();
+      });
+      const activeVideo = videos[currentIndex];
+      activeVideo.classList.add("active");
+      activeVideo.play();
+
+      const offset = (track.clientWidth / 2) - (activeVideo.offsetWidth / 2);
+      const translateX = -currentIndex * 170 + offset;
+      track.style.transform = `translateX(${translateX}px)`;
+    }
+
+    leftBtn.addEventListener("click", e => {
+      e.preventDefault();
+      currentIndex = (currentIndex - 1 + videos.length) % videos.length;
+      updateCarousel();
+    });
+
+    rightBtn.addEventListener("click", e => {
+      e.preventDefault();
+      currentIndex = (currentIndex + 1) % videos.length;
+      updateCarousel();
+    });
+
+    window.addEventListener("load", () => {
+      updateCarousel();
+    });
+
+    // YouTube API for vlog section
     const API_KEY = "AIzaSyBQZe9U42w2EP8zUKD58Vibnha_W-pQ_Pk";
     const videoIds = ["S21N2gBk73U","ImNLFlLXvsE","QPmIEKzP8lM","j5b0NBZdWZA","tWkMxxy8OOQ"];
 
